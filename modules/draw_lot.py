@@ -41,4 +41,20 @@ def run_draw_lot():
 
 # 單獨執行這個檔案時，可以直接測試抽籤
 if __name__ == "__main__":
-    run_draw_lot()
+    def run_draw_lot():
+    # 建立抽籤物件
+    div_tool = LotDivination()
+    # 執行抽籤，拿到籤結果
+    lot_result = div_tool.draw()
+
+    # 取得吉凶對應顏色
+    text_color = get_level_color(lot_result["level"])
+    reset_color = "\033[0m" # 還原顏色
+
+    print(f"\n{text_color}===== 抽籤結果 ====={reset_color}")
+    print(f"{text_color}籤號：{lot_result['number']}｜{lot_result['title']}{reset_color}")
+    print(f"{text_color}詩文：{lot_result['poem']}{reset_color}")
+    print(f"{text_color}解曰：{lot_result['explain']}{reset_color}")
+
+    # 儲存紀錄
+    save_divination_record(datetime.now().strftime("%Y-%m-%d %H:%M"), lot_result)
