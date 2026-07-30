@@ -6,6 +6,7 @@ def main_menu():
         print("\n========= Divination Master TW 繁體占卜系統 =========")
         print("1｜抽靈籤")
         print("2｜查詢歷史抽籤紀錄")
+        print("3｜易經金錢起卦
         print("0｜離開程式")
         select = input("請輸入選項數字：")
         if select == "1":
