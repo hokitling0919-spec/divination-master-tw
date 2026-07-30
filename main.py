@@ -1,26 +1,24 @@
-from modules.draw_lot import LotDivination
+from modules.draw_lot import run_draw_lot
+from modules.record_manager import read_all_record
 
-def menu():
-    print("===== 繁體占卜師 Divination Master TW =====")
-    print("1. 抽取靈籤")
-    print("2. 易經起卦 (開發中)")
-    print("3. 塔羅占卜 (開發中)")
-    print("0. 離開")
-    return input("請選擇功能：")
-
-if __name__ == "__main__":
-    lot_tool = LotDivination()
+def main_menu():
     while True:
-        select = menu()
+        print("\n========= Divination Master TW 繁體占卜系統 =========")
+        print("1｜抽靈籤")
+        print("2｜查詢歷史抽籤紀錄")
+        print("0｜離開程式")
+        select = input("請輸入選項數字：")
         if select == "1":
-            print("\n===== 抽籤結果 =====")
-            data = lot_tool.draw()
-            print(f"第{data['number']}籤｜{data['title']}")
-            print(data["poem"])
-            print(f"\n解曰：{data['explain']}")
-            print(f"參考建議：{data['suggest']}\n")
+            run_draw_lot()
+        elif select == "2":
+            print("\n===== 歷史抽籤紀錄 =====")
+            data = read_all_record()
+            print(data if data else "暫無任何抽籤紀錄")
         elif select == "0":
-            print("感謝使用，祝平安順遂")
+            print("🙏 平安吉祥，程式結束")
             break
         else:
-            print("功能尚未實作，敬請期待\n")
+            print("❌ 輸入錯誤，請重新選擇！")
+
+if __name__ == "__main__":
+    main_menu()
