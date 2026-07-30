@@ -1,6 +1,6 @@
 from modules.draw_lot import run_draw_lot
 from modules.record_manager import read_all_record
-from modules.yijing import run_yijing #新增
+from modules.yijing import run_yijing
 
 def main_menu():
     while True:
@@ -17,9 +17,12 @@ def main_menu():
             data = read_all_record()
             print(data if data else "暫無任何抽籤紀錄")
         elif select == "3":
-            run_yijing()  #易經起卦
+            run_yijing()
         elif select == "0":
             print("🙏平安吉祥，程式結束")
             break
         else:
             print("❌ 輸入錯誤，請重新選擇！")
+
+if __name__ == "__main__":
+    main_menu()
