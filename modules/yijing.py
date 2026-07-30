@@ -155,5 +155,14 @@ def start_yijing_divination():
     return output
 
 # 測試用
+
+# 【新的 run_yijing 定義，放在最底部、測試程式前面】
+def run_yijing():
+    """易經起卦入口，main.py 呼叫用"""
+    print("===== 易經金錢起卦系統 =====")
+    result_text = start_yijing_divination()
+    print(result_text)
+
+# 測試用
 if __name__ == "__main__":
     print(start_yijing_divination())
